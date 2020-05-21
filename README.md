@@ -1,21 +1,9 @@
-# Secfi Back-End Assignment
+# Bynder Back-End Assignment
 
-The idea is to create a microservice that allows CRUD operations on a “users” table. The service should allow read and write operations following this interface:
-
-```
-interface IUser {
-    firstName: string;
-    lastName: string;
-    userName: string;
-    password: string;
-    avatar: string;
-}
-```
+The idea is to create a microservice that integrates Unsplash (https://unsplash.com/). Unsplash offers a JSON API, which you can use by creating a free developer account, you can find the instructions and API
 
 <ul>
     <li> Service runs in a Docker container </li>
-    <li> Passwords are stored in encrypted format </li>
-    <li> Avatars are also stored </li>
 </ul>
 
 ## Prerequisites
@@ -28,43 +16,27 @@ Install Node.js first. Built with latest version
 
 Port exposed as 3000
 
-#### Retrieve all users:
+#### List photos:
 
-GET localhost:{port}/users
+GET localhost:{port}/photos
 
-#### Retrieve a specific user:
+#### List collections:
 
-GET localhost :{port}/users/{user id}
+GET localhost :{port}/collections/{user id}
 
-#### Create new user:
+#### Create new collection:
 
-POST localhost:{port} /users/{user id}
-
-```
-Content-Type: multipart/form-data
- - firstName: the user first name as string
- - lastName: the user last name as string
- - userName: the username as string
- - password: the user password as string
- - avatar: the user avatar as a file type
-```
-
-#### Update a specific user:
-
-PATCH localhost :{port}/users/{user id}
+POST localhost:{port} /collections/
 
 ```
-Content-Type: multipart/form-data
- - firstName: the user first name as string
- - lastName: the user last name as string
- - userName: the username as string
- - password: the user password as string
- - avatar: the user avatar as a file type
+Content-Type: raw/json
+ - title: the collection title - required
+ - description: the collection description - optional
 ```
 
-#### Delete a specific user:
+#### App a photo to a collection:
 
-DELETE localhost:3000/users/{user id}
+POST localhost :{port}/collections/{collection id}/add/{photo id}
 
 ### Description of usual server responses
 
@@ -79,18 +51,16 @@ DELETE localhost:3000/users/{user id}
 Runs on docker container
 
 ```
-git clone https://github.com/andremlsantos/secfi-typescript.git
-docker build -t secfi-typescript .
-docker run -it -p 3000:3000 secfi-typescript
+git clone https://github.com/andremlsantos/Bynder-assigment.git
+docker build -t bynder-backend .
+docker run -it -p 3000:3000 bynder-backend
 ```
 
 ## Built With
 
 -   [Express](https://expressjs.com/) - Web application server framework
--   [Bcrypt](https://www.npmjs.com/package/bcrypt) - A library to help you hash passwords
--   [Mongoose](https://mongoosejs.com/) - Elegant mongodb object modeling for node.js
--   [Multer](https://github.com/expressjs/multer) - Middleware for handling multipart/form-data, which is primarily used for uploading files
 -   [Body-parser](https://github.com/expressjs/body-parser) - Node.js body parsing middleware.
+-   [Unsplash-js](https://github.com/unsplash/unsplash-js) - A server-side Javascript wrapper for working with the Unsplash API.
 
 ## License
 
