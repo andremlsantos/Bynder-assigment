@@ -10,7 +10,7 @@ The idea is to create a microservice that integrates Unsplash (https://unsplash.
 
 ```
 Install Node.js first.
-Get free developer API account <a href="https://unsplash.com/documentation">here</a>
+Get free developer API account https://unsplash.com/documentation
 Update src/helpers/unsplash with your credentials
 ```
 
@@ -48,9 +48,17 @@ POST localhost :{port}/collections/{collection id}/add/{photo id}
 -   404 NOT FOUND – the request was not found;
 -   500 SERVER ERROR
 
-### Installing
+### Installing and Running
 
-Runs on docker container
+Via node.js server
+
+```
+git clone https://github.com/andremlsantos/Bynder-assigment.git
+npm install
+npm start
+```
+
+Via docker container
 
 ```
 git clone https://github.com/andremlsantos/Bynder-assigment.git
