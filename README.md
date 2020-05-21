@@ -9,7 +9,9 @@ The idea is to create a microservice that integrates Unsplash (https://unsplash.
 ## Prerequisites
 
 ```
-Install Node.js first. Built with latest version
+Install Node.js first.
+Get free developer API account <a href="https://unsplash.com/documentation">here</a>
+Update src/helpers/unsplash with your credentials
 ```
 
 ## Reference API
